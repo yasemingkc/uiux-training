@@ -1,0 +1,50 @@
+App101 dev outline
+
+day1 -----------------
+
+all vs code, ideal scenario - citadel-specific issues addressed later
+currently just static files, all client-side - server addressed later
+need nodejs (js runtine env), npm (node package manager)
+
+npx create-react-app app101
+npm start
+npm run build
+
+-> build folder for deployment
+-> walthru code: index.html, index.js
+(index.html - index.js connection - html-webpack-plugin scripts under the hood)
+
+day2 -----------------
+
+vs code: setting up folder, terminal, git diffs
+
+npm run build
+
+express server
+nodemon
+serve, then change local, then see 3000->8080 proxy. then serve: unchanged then build then serve again
+
+data-simple: discuss ping
+
+data: server -> front end
+data: front-end -> another component: introducing the idea of "props"
+propagate up & down the component hierarchy
+
+day3 -----------------
+
+component hierarchy review
+sending actions back up to the parent
+bigger data -> lodash sort, uniq, clone
+visualization / styling deep dive
+ag-grid (citadel enterprise)
+valueformatter
+cellrenderer
+
+
+day4 -----------------
+urls: subpages, api/*
+
+day5 -----------------
+
+authentication
+connection to DBs
