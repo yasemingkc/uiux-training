@@ -36,7 +36,7 @@ component hierarchy review
 sending actions back up to the parent
 bigger data -> lodash sort, uniq, clone
 
-day4 ----------------
+day4 -----------------
 
 visualization / styling deep dive
 ag-grid (citadel enterprise)

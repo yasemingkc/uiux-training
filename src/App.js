@@ -8,12 +8,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      word: 'initialstate'
+      word: 'initialstate',
+      schoolData: []
     }
   }
 
   render() {
-    console.log(_.lowerCase('ABC'));
+    console.log(this.state);
     return (
       <div className="App">
         <header className="App-header">
@@ -30,6 +31,11 @@ class App extends React.Component {
               .then((data) => this.setState({word: data.word}))
             }}
           />
+          <button onClick={() => {
+            fetch('/sat-scores')
+            .then((res) => res.json())
+            .then((data) => this.setState({schoolData: data}))
+          }}> Fetch SAT Scores </button>
         </header>
   
       </div>
