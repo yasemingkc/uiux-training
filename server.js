@@ -5,8 +5,12 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/ping', function (req, res) {
- return res.send(JSON.stringify({word: 'dsg'}));
+ return res.send(JSON.stringify({word: 'dsg-3-4'}));
 });
+
+app.get('/pong', function (req, res) {
+  return res.send(JSON.stringify({word: 'dsg-pong'}));
+ });
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

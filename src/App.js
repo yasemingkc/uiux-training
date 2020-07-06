@@ -22,7 +22,14 @@ class App extends React.Component {
             .then((res) => res.json())
             .then((data) => this.setState({word: data.word}))
           }}>Get Data</button>
-          <WordComponent data={this.state.word} />
+          <WordComponent
+            word={this.state.word}
+            onClickText={() => {
+              fetch('/pong')
+              .then((res) => res.json())
+              .then((data) => this.setState({word: data.word}))
+            }}
+          />
         </header>
   
       </div>
