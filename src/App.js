@@ -13,7 +13,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     //for tomorrow, create a subcomponent (like WordComponent) that displays the length of the array in this.state.schoolData
     return (
       <div className="App">
