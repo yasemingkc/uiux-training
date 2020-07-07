@@ -1,16 +1,15 @@
-import React from 'react';
-import _ from 'lodash';
-import logo from './logo.svg';
-import './App.css';
-import WordComponent from './WordComponent';
+import React from "react";
+import "./App.css";
+import WordComponent from "./WordComponent";
+import SchoolStats from "./SchoolStats";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      word: 'initialstate',
-      schoolData: []
-    }
+      word: "initialstate",
+      stateSchoolData: [],
+    };
   }
 
   render() {
@@ -19,26 +18,35 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <button onClick={() => {
-            fetch('/ping')
-            .then((res) => res.json())
-            .then((data) => this.setState({word: data.word}))
-          }}>Get Data</button>
+          <button
+            onClick={() => {
+              fetch("/ping")
+                .then((res) => res.json())
+                .then((data) => this.setState({ word: data.word }));
+            }}
+          >
+            Get Data
+          </button>
           <WordComponent
             word={this.state.word}
             onClickText={() => {
-              fetch('/pong')
-              .then((res) => res.json())
-              .then((data) => this.setState({word: data.word}))
+              fetch("/pong")
+                .then((res) => res.json())
+                .then((data) => this.setState({ word: data.word }));
             }}
           />
-          <button onClick={() => {
-            fetch('/sat-scores')
-            .then((res) => res.json())
-            .then((data) => this.setState({schoolData: data}))
-          }}> Fetch SAT Scores </button>
+          <button
+            onClick={() => {
+              fetch("/sat-scores")
+                .then((res) => res.json())
+                .then((data) => this.setState({ stateSchoolData: data }));
+            }}
+          >
+            {" "}
+            Fetch SAT Scores{" "}
+          </button>
+          <SchoolStats statsSchoolData={this.state.stateSchoolData} />
         </header>
-  
       </div>
     );
   }

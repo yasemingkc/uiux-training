@@ -34,10 +34,11 @@ day3 -----------------
 
 component hierarchy review
 sending actions back up to the parent
-bigger data -> lodash sort, uniq, clone
 
 day4 -----------------
 
+vs code: editor preview disabling setting, prettier & format on save
+bigger data -> lodash sort, uniq, clone
 visualization / styling deep dive
 ag-grid (citadel enterprise)
 valueformatter
