@@ -4,22 +4,26 @@ import _ from "lodash";
 class SchoolStats extends React.Component {
   render() {
     let schoolData = this.props.statsSchoolData;
-    /*
-    Critical Reading Mean: "391"
-DBN: "01M292"
-Mathematics Mean: "425"
-Number of Test Takers: "31"
-School Name: "Henry Street School for International Studies"
-Writing Mean: "385"
-    */
-    console.log("schooldata - before", schoolData);
+    console.log("schooldata - before casting numbers", _.first(schoolData));
     schoolData = _.map(schoolData, (school) => {
       return {
         ...school,
         "Critical Reading Mean": Number(school["Critical Reading Mean"]),
+        "Mathematics Mean": Number(school["Mathematics Mean"]),
+        "Number of Test Takers": Number(school["Number of Test Takers"]),
+        "Writing Mean": Number(school["Writing Mean"]),
       };
     });
-    console.log("schooldata - after", schoolData);
+    console.log("schooldata - after casting to numbers", _.first(schoolData));
+
+    console.log("schoolData - not ordered", schoolData);
+    schoolData = _.sortBy(schoolData, "Mathematics Mean").reverse();
+
+    console.log("schoolData - ordered  by math mean", schoolData);
+
+    // 1. eliminate the schools that have zero math means using _.filter
+    // 2. calculate the mean of the means the math score sum using _.sumBy and ".length" property of the remaining array
+    // 3. print out the names of the top 3 schools by math score using _.slice method
 
     const numOfSchools = schoolData.length;
     const mathScoreSum = 20;
