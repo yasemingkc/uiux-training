@@ -60,7 +60,7 @@ class SchoolStats extends React.Component {
         <div>Number of Schools: {numOfSchools}</div>
         <div>Math Score Mean of Means: {meanOfMeanMathScores.toFixed(0)}</div>
         <div>Top 3 Schools: {top3MathSchools.join(", ")}</div>
-        <Grid />
+        <Grid data={schoolData} />
       </div>
     );
   }
