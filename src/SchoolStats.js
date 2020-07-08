@@ -1,6 +1,8 @@
 import React from "react";
 import _ from "lodash";
 
+import Grid from "./Grid";
+
 class SchoolStats extends React.Component {
   render() {
     let schoolData = this.props.statsSchoolData;
@@ -58,6 +60,7 @@ class SchoolStats extends React.Component {
         <div>Number of Schools: {numOfSchools}</div>
         <div>Math Score Mean of Means: {meanOfMeanMathScores.toFixed(0)}</div>
         <div>Top 3 Schools: {top3MathSchools.join(", ")}</div>
+        <Grid />
       </div>
     );
   }
