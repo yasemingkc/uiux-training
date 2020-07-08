@@ -6,6 +6,14 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 class Grid extends React.Component {
+  // homework:
+  // 1. make background white (instead of gray)
+  // 2. remove "get data" & ping/pong handlers from the server
+  // 3. put the "Fetch SAT Scores" button to the top of the page
+  // 4. Put the statistics under the button
+  // 5. Using ag-grid documentation, make the grid fill the rest of the page under it. (hint: the "gridApi" and "sizeColumnsToFit()" documentation in ag-grid )
+  // 6. make the grid columns sortable
+
   render() {
     const schoolData = this.props.data;
 
@@ -13,7 +21,6 @@ class Grid extends React.Component {
       headerName: key,
       field: key,
     }));
-    console.log(columnDefs);
     return (
       <div
         className="ag-theme-alpine"
