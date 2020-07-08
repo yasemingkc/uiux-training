@@ -38,17 +38,18 @@ sending actions back up to the parent
 day4 -----------------
 
 vs code: editor preview disabling setting, prettier & format on save
+
+day5 -----------------
 bigger data -> lodash sort, uniq, clone
-visualization / styling deep dive
 ag-grid (citadel enterprise)
 valueformatter
 cellrenderer
+highcharts
 
-
-day4 -----------------
+day6 -----------------
 urls: subpages, api/*
 
-day5 -----------------
+day7 -----------------
 
 authentication
 connection to DBs
