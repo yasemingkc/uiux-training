@@ -39,6 +39,19 @@ class SchoolStats extends React.Component {
       (school) => school["School Name"]
     );
 
+    // lodash uniq, uniqBy, clone, cloneDeep
+    // console.log(_.uniq([1, 2, 2, 3]));
+    // console.log(_.uniqBy([{ word: "dsg" }, { word: "dsg" }], "word"));
+    let sampleArray1 = [{ word: "dsg" }];
+    let sampleArray2 = _.clone(sampleArray1);
+    sampleArray2[0].word = "newWord";
+    // console.log({ sampleArray1, sampleArray2 });
+    // notice -> sampleArray2 manipulation affected sampleArray1
+    let array1 = [{ word: "dsg" }];
+    let array2 = _.cloneDeep(array1);
+    array2[0].word = "newWord";
+    // console.log({ array1, array2 });
+
     const numOfSchools = schoolData.length;
     return (
       <div>

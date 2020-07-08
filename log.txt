@@ -40,7 +40,7 @@ day4 -----------------
 vs code: editor preview disabling setting, prettier & format on save
 
 day5 -----------------
-bigger data -> lodash sort, uniq, clone
+bigger data -> lodash sort, uniq, uniqBy, clone, cloneDeep
 ag-grid (citadel enterprise)
 valueformatter
 cellrenderer
