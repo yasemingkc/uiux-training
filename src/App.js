@@ -14,7 +14,6 @@ class App extends React.Component {
 
   render() {
     //for tomorrow, create a subcomponent (like WordComponent) that displays the length of the array in this.state.schoolData
-    console.log("abc");
     return (
       <div className="App">
         <header className="App-header">

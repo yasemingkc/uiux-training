@@ -56,7 +56,7 @@ class SchoolStats extends React.Component {
 
     const numOfSchools = schoolData.length;
     return (
-      <div className="schoolstats">
+      <div>
         <div>Number of Schools: {numOfSchools}</div>
         <div>Math Score Mean of Means: {meanOfMeanMathScores.toFixed(0)}</div>
         <div>Top 3 Schools: {top3MathSchools.join(", ")}</div>
