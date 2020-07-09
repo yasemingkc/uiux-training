@@ -5,14 +5,6 @@ const satData = require("./data.json");
 
 app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/ping", function (req, res) {
-  return res.send(JSON.stringify({ word: "dsg-ping" }));
-});
-
-app.get("/pong", function (req, res) {
-  return res.send(JSON.stringify({ word: "dsg-pong" }));
-});
-
 app.get("/sat-scores", function (req, res) {
   return res.send(JSON.stringify(satData));
 });

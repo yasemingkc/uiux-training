@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import WordComponent from "./WordComponent";
 import SchoolStats from "./SchoolStats";
 
 class App extends React.Component {
@@ -17,28 +16,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="download-buttons">
-            <div className="button">Button 1</div>
-            <div className="button selected">Button 2</div>
-          </div>
-
-          <button
-            onClick={() => {
-              fetch("/ping")
-                .then((res) => res.json())
-                .then((data) => this.setState({ word: data.word }));
-            }}
-          >
-            Get Data
-          </button>
-          <WordComponent
-            word={this.state.word}
-            onClickText={() => {
-              fetch("/pong")
-                .then((res) => res.json())
-                .then((data) => this.setState({ word: data.word }));
-            }}
-          />
           <button
             onClick={() => {
               fetch("/sat-scores")
