@@ -14,6 +14,9 @@ class Grid extends React.Component {
   // 5. Using ag-grid documentation, make the grid fill the rest of the page under it. (hint: the "gridApi" and "sizeColumnsToFit()" documentation in ag-grid )
   // 6. make the grid columns sortable
 
+  // css homework:
+  // create a sidebar right under the "top-bar" div, with fixed width of 200px
+
   render() {
     const schoolData = this.props.data;
 

@@ -15,7 +15,19 @@ class App extends React.Component {
     //for tomorrow, create a subcomponent (like WordComponent) that displays the length of the array in this.state.schoolData
     return (
       <div className="App">
-        <div className="top-bar" />
+        <div className="top-bar">
+          <div className="title">DSG Sandbox App</div>
+          <button
+            onClick={() => {
+              fetch("/sat-scores")
+                .then((res) => res.json())
+                .then((data) => this.setState({ stateSchoolData: data }));
+            }}
+          >
+            {" "}
+            Fetch SAT Scores{" "}
+          </button>
+        </div>
         <div className="statistics">Some statistics</div>
         <div className="grid" />
       </div>

@@ -7,7 +7,19 @@
 .App .top-bar {
   min-height: 40px;
   border-bottom: thin solid gray;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
+
+.App .top-bar .title {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+}
+
 .App .statistics {
   border-bottom: thin solid gray;
 }
