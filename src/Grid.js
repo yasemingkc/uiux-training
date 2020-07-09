@@ -14,7 +14,17 @@ class Grid extends React.Component {
   // 5. Using ag-grid documentation, make the grid fill the rest of the page under it. (hint: the "gridApi" and "sizeColumnsToFit()" documentation in ag-grid )
   // 6. make the grid columns sortable
 
+  // onGridReady(grid) {
+  //   this.gridApi = grid.api;
+  //   this.gridApi.
+  // }
+
+  componentDidUpdate() {
+    setTimeout(this.gridApi.sizeColumnsToFit(), 500);
+  }
+
   render() {
+    console.log("a");
     const schoolData = this.props.data;
 
     const columnDefs = _.map(_.keys(_.first(schoolData)), (key) => ({
@@ -23,10 +33,17 @@ class Grid extends React.Component {
     }));
     return (
       <div
-        className="ag-theme-alpine"
-        style={{ height: "200px", width: "600px" }}
+        className="ag-theme-alpine grid-wrapper"
+        style={{ width: "100vw", height: "60vh" }}
       >
-        <AgGridReact columnDefs={columnDefs} rowData={schoolData}></AgGridReact>
+        <AgGridReact
+          enableSorting
+          columnDefs={columnDefs}
+          rowData={schoolData}
+          onGridReady={(event) => {
+            this.gridApi = event.api;
+          }}
+        ></AgGridReact>
       </div>
     );
   }
