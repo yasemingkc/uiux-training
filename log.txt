@@ -41,15 +41,19 @@ vs code: editor preview disabling setting, prettier & format on save
 
 day5 -----------------
 bigger data -> lodash sort, uniq, uniqBy, clone, cloneDeep
-ag-grid (citadel enterprise)
-valueformatter
-cellrenderer
-highcharts
+introduction to ag-grid (citadel enterprise)
 
 day6 -----------------
-urls: subpages, api/*
+
+ag-grid implementation
+valueformatter
+cellrenderer
+highcharts visualization
 
 day7 -----------------
+urls: subpages, api/*
+
+day8 -----------------
 
 authentication
 connection to DBs

@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,21 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.button {
+  background: gray;
+  color: white;
+  font-style: italic;
+}
+
+.download-buttons .button {
+  background: blue;
+  color: pink;
+}
+
+.download-buttons .button.selected {
+  font-weight: bold;
 }
 
 .App-link {

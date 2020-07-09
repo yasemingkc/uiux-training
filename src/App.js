@@ -17,6 +17,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <div className="download-buttons">
+            <div className="button">Button 1</div>
+            <div className="button selected">Button 2</div>
+          </div>
+
           <button
             onClick={() => {
               fetch("/ping")
