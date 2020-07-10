@@ -1,6 +1,8 @@
 import React from "react";
+import _ from "lodash";
 import "./App.css";
 import SchoolStats from "./SchoolStats";
+import Grid from "./Grid";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +14,28 @@ class App extends React.Component {
   }
 
   render() {
-    //for tomorrow, create a subcomponent (like WordComponent) that displays the length of the array in this.state.schoolData
+    let schoolData = this.state.stateSchoolData;
+    schoolData = _.map(schoolData, (school) => {
+      return {
+        ...school,
+        "Critical Reading Mean": Number(school["Critical Reading Mean"]),
+        "Mathematics Mean": Number(school["Mathematics Mean"]),
+        "Number of Test Takers": Number(school["Number of Test Takers"]),
+        "Writing Mean": Number(school["Writing Mean"]),
+      };
+    });
+    schoolData = _.sortBy(schoolData, "Mathematics Mean").reverse();
+
+    // 1. eliminate the schools that have zero math means using _.filter (result: down from 460 to 386)
+    schoolData = _.filter(
+      schoolData,
+      (school) => school["Mathematics Mean"] !== 0
+    );
+
+    // schoolData = _.map(schoolData, (school) =>
+    //   _.omit(school, "Number of Test Takers")
+    // );
+
     return (
       <div className="App">
         <div className="top-bar">
@@ -31,30 +54,17 @@ class App extends React.Component {
         <div className="sidebar-and-page">
           <div className="sidebar" />
           <div className="page">
-            <div className="statistics">Some statistics</div>
-            <div className="grid" />
+            <div className="statistics">
+              <SchoolStats statsSchoolData={schoolData} />
+            </div>
+            <div className="grid">
+              <Grid data={schoolData} />
+            </div>
           </div>
         </div>
       </div>
     );
   }
 }
-
-/*
-
-<header className="App-header">
-  <button
-    onClick={() => {
-      fetch("/sat-scores")
-        .then((res) => res.json())
-        .then((data) => this.setState({ stateSchoolData: data }));
-    }}
-  >
-    {" "}
-    Fetch SAT Scores{" "}
-  </button>
-  <SchoolStats statsSchoolData={this.state.stateSchoolData} />
-</header>
-*/
 
 export default App;

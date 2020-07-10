@@ -1,0 +1,15 @@
+.schoolstats .row {
+  display: flex;
+  padding: 5px 10px;
+}
+
+.schoolstats .row .description {
+  flex: 1;
+  min-width: 200px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.schoolstats .row .answer {
+  flex: 2;
+}

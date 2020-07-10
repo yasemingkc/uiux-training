@@ -1,28 +1,10 @@
 import React from "react";
 import _ from "lodash";
-
-import Grid from "./Grid";
+import "./SchoolStats.css";
 
 class SchoolStats extends React.Component {
   render() {
     let schoolData = this.props.statsSchoolData;
-    schoolData = _.map(schoolData, (school) => {
-      return {
-        ...school,
-        "Critical Reading Mean": Number(school["Critical Reading Mean"]),
-        "Mathematics Mean": Number(school["Mathematics Mean"]),
-        "Number of Test Takers": Number(school["Number of Test Takers"]),
-        "Writing Mean": Number(school["Writing Mean"]),
-      };
-    });
-    schoolData = _.sortBy(schoolData, "Mathematics Mean").reverse();
-
-    // 1. eliminate the schools that have zero math means using _.filter (result: down from 460 to 386)
-    schoolData = _.filter(
-      schoolData,
-      (school) => school["Mathematics Mean"] !== 0
-    );
-
     // javascript == === != !==
     // ==, != -> truthy or falsy
     // ===, !== -> true or false -> PREFERRED
@@ -56,11 +38,19 @@ class SchoolStats extends React.Component {
 
     const numOfSchools = schoolData.length;
     return (
-      <div>
-        <div>Number of Schools: {numOfSchools}</div>
-        <div>Math Score Mean of Means: {meanOfMeanMathScores.toFixed(0)}</div>
-        <div>Top 3 Schools: {top3MathSchools.join(", ")}</div>
-        <Grid data={schoolData} />
+      <div className="schoolstats">
+        <div className="row">
+          <div className="description">Number of Schools</div>
+          <div className="answer">{numOfSchools}</div>
+        </div>
+        <div className="row">
+          <div className="description">Math Score Mean of Means</div>
+          <div className="answer">{meanOfMeanMathScores.toFixed(0)}</div>
+        </div>
+        <div className="row">
+          <div className="description">Top 3 Schools</div>
+          <div className="answer">{top3MathSchools.join(", ")}</div>
+        </div>
       </div>
     );
   }

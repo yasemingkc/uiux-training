@@ -17,6 +17,10 @@ class Grid extends React.Component {
   // css homework:
   // create a sidebar right under the "top-bar" div, with fixed width of 200px
 
+  componentDidUpdate() {
+    this.gridApi && this.gridApi.sizeColumnsToFit();
+  }
+
   render() {
     const schoolData = this.props.data;
 
@@ -27,9 +31,15 @@ class Grid extends React.Component {
     return (
       <div
         className="ag-theme-alpine"
-        style={{ height: "200px", width: "600px" }}
+        style={{ height: "100vh", width: "100%" }}
       >
-        <AgGridReact columnDefs={columnDefs} rowData={schoolData}></AgGridReact>
+        <AgGridReact
+          columnDefs={columnDefs}
+          rowData={schoolData}
+          onGridReady={(grid) => {
+            this.gridApi = grid.api;
+          }}
+        />
       </div>
     );
   }
