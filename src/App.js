@@ -59,7 +59,7 @@ class App extends React.Component {
               <SchoolStats statsSchoolData={schoolData} />
             </div>
             <div className="chart">
-              <Chart />
+              <Chart data={schoolData} />
             </div>
             <div className="grid">
               <Grid data={schoolData} />
