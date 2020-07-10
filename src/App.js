@@ -28,8 +28,13 @@ class App extends React.Component {
             Fetch SAT Scores{" "}
           </button>
         </div>
-        <div className="statistics">Some statistics</div>
-        <div className="grid" />
+        <div className="sidebar-and-page">
+          <div className="sidebar" />
+          <div className="page">
+            <div className="statistics">Some statistics</div>
+            <div className="grid" />
+          </div>
+        </div>
       </div>
     );
   }

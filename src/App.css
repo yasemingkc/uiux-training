@@ -20,6 +20,20 @@
   color: blue;
 }
 
+.App .sidebar-and-page {
+  flex: 1;
+  display: flex;
+}
+
+.App .sidebar-and-page .sidebar {
+  width: 150px;
+  border-right: 1px solid gray;
+}
+
+.App .sidebar-and-page .page {
+  flex: 1;
+}
+
 .App .statistics {
   border-bottom: thin solid gray;
 }
