@@ -3,6 +3,7 @@ import _ from "lodash";
 import "./App.css";
 import SchoolStats from "./SchoolStats";
 import Grid from "./Grid";
+import Chart from "./Chart";
 
 class App extends React.Component {
   constructor(props) {
@@ -56,6 +57,9 @@ class App extends React.Component {
           <div className="page">
             <div className="statistics">
               <SchoolStats statsSchoolData={schoolData} />
+            </div>
+            <div className="chart">
+              <Chart />
             </div>
             <div className="grid">
               <Grid data={schoolData} />
