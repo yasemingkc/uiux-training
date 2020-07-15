@@ -46,11 +46,13 @@ introduction to ag-grid (citadel enterprise)
 day6 -----------------
 
 ag-grid implementation
-valueformatter
-cellrenderer
 highcharts visualization
 
 day7 -----------------
+
+valueformatter
+cellrenderer
+highcharts hw /review
 urls: subpages, api/*
 
 day8 -----------------
