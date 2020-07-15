@@ -5,6 +5,14 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
+//homework:
+// create a highcharts bar chart with the scores for each school vertically below each other, CR, Math, WR
+
+const CustomRenderer = (cell) => {
+  const schoolname = _.get(cell, ["data", "School Name"]);
+  return <div>{schoolname.substring(0, 2)}</div>;
+};
+
 class Grid extends React.Component {
   // homework:
   // 1. make background white (instead of gray)
@@ -24,10 +32,20 @@ class Grid extends React.Component {
   render() {
     const schoolData = this.props.data;
 
-    const columnDefs = _.map(_.keys(_.first(schoolData)), (key) => ({
+    let columnDefs = _.map(_.keys(_.first(schoolData)), (key) => ({
       headerName: key,
       field: key,
     }));
+    columnDefs = [
+      ...columnDefs,
+      {
+        headerName: "Viz",
+        cellRenderer: "CustomRendererGrid",
+      },
+    ];
+    // alternative
+    // columnDefs = _.flatten([columnDefs, {}])
+    // [].push({})
     return (
       <div
         className="ag-theme-alpine"
@@ -39,6 +57,7 @@ class Grid extends React.Component {
           onGridReady={(grid) => {
             this.gridApi = grid.api;
           }}
+          frameworkComponents={{ CustomRendererGrid: CustomRenderer }}
         />
       </div>
     );
