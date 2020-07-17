@@ -53,9 +53,13 @@ day7 -----------------
 valueformatter
 cellrenderer
 highcharts hw /review
-urls: subpages, api/*
 
 day8 -----------------
+
+valueformatter
+urls: subpages, api/*
+
+day9 -----------------
 
 authentication
 connection to DBs

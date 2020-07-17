@@ -7,6 +7,7 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 //homework:
 // create a highcharts bar chart with the scores for each school vertically below each other, CR, Math, WR
+// https://www.highcharts.com/demo/bar-basic
 
 const CustomRenderer = (cell) => {
   const schoolname = _.get(cell, ["data", "School Name"]);
