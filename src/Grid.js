@@ -1,6 +1,8 @@
 import React from "react";
 import _ from "lodash";
 import { AgGridReact } from "ag-grid-react";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
 
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
@@ -12,6 +14,58 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 const CustomRenderer = (cell) => {
   const schoolname = _.get(cell, ["data", "School Name"]);
   return <div>{schoolname.substring(0, 2)}</div>;
+};
+
+const BarChartRenderer = (cell) => {
+  const cr = _.get(cell, ["data", "Critical Reading Mean"]);
+  const math = _.get(cell, ["data", "Mathematics Mean"]);
+  const wr = _.get(cell, ["data", "Writing Mean"]);
+  const hcOptions = {
+    credits: {
+      enabled: false,
+    },
+    chart: {
+      type: "bar",
+      height: 50,
+      width: 100,
+    },
+    title: {
+      text: undefined,
+    },
+    xAxis: {
+      categories: ["CR", "WR", "Math"],
+      labels: {
+        enabled: false,
+      },
+      title: {
+        text: undefined,
+      },
+    },
+    yAxis: {
+      min: 0,
+      max: 800,
+      labels: {
+        enabled: false,
+      },
+      title: {
+        text: undefined,
+      },
+    },
+    tooltip: {
+      enabled: false,
+    },
+    legend: {
+      enabled: false,
+    },
+    series: [
+      {
+        name: "",
+        data: [cr, wr, math],
+      },
+    ],
+  };
+
+  return <HighchartsReact highcharts={Highcharts} options={hcOptions} />;
 };
 
 class Grid extends React.Component {
@@ -41,7 +95,7 @@ class Grid extends React.Component {
       ...columnDefs,
       {
         headerName: "Viz",
-        cellRenderer: "CustomRendererGrid",
+        cellRenderer: "BarChartRenderer",
       },
     ];
     // alternative
@@ -58,7 +112,7 @@ class Grid extends React.Component {
           onGridReady={(grid) => {
             this.gridApi = grid.api;
           }}
-          frameworkComponents={{ CustomRendererGrid: CustomRenderer }}
+          frameworkComponents={{ BarChartRenderer: BarChartRenderer }}
         />
       </div>
     );

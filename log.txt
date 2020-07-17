@@ -50,12 +50,12 @@ highcharts visualization
 
 day7 -----------------
 
-valueformatter
 cellrenderer
 highcharts hw /review
 
 day8 -----------------
 
+in-grid visualization
 valueformatter
 urls: subpages, api/*
 
