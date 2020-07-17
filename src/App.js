@@ -5,6 +5,8 @@ import SchoolStats from "./SchoolStats";
 import Grid from "./Grid";
 import Chart from "./Chart";
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,35 +40,48 @@ class App extends React.Component {
     // );
 
     return (
-      <div className="App">
-        <div className="top-bar">
-          <div className="title">DSG Sandbox App</div>
-          <button
-            onClick={() => {
-              fetch("/sat-scores")
-                .then((res) => res.json())
-                .then((data) => this.setState({ stateSchoolData: data }));
-            }}
-          >
-            {" "}
-            Fetch SAT Scores{" "}
-          </button>
-        </div>
-        <div className="sidebar-and-page">
-          <div className="sidebar" />
-          <div className="page">
-            <div className="statistics">
-              <SchoolStats statsSchoolData={schoolData} />
+      <Router>
+        <div className="App">
+          <div className="top-bar">
+            <div className="title">DSG Sandbox App</div>
+            <button
+              onClick={() => {
+                fetch("/sat-scores")
+                  .then((res) => res.json())
+                  .then((data) => this.setState({ stateSchoolData: data }));
+              }}
+            >
+              {" "}
+              Fetch SAT Scores{" "}
+            </button>
+          </div>
+          <div className="sidebar-and-page">
+            <div className="sidebar">
+              <Link to="/">Home</Link>
+              <Link to="/schools">Schools</Link>
             </div>
-            <div className="chart">
-              <Chart data={schoolData} />
-            </div>
-            <div className="grid">
-              <Grid data={schoolData} />
-            </div>
+
+            <Switch>
+              <Route path="/" exact>
+                <div>Homepage Greeting</div>
+              </Route>
+              <Route path="/schools" exact>
+                <div className="page">
+                  <div className="statistics">
+                    <SchoolStats statsSchoolData={schoolData} />
+                  </div>
+                  <div className="chart">
+                    <Chart data={schoolData} />
+                  </div>
+                  <div className="grid">
+                    <Grid data={schoolData} />
+                  </div>
+                </div>
+              </Route>
+            </Switch>
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
