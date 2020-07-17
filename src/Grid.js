@@ -87,9 +87,11 @@ class Grid extends React.Component {
   render() {
     const schoolData = this.props.data;
 
+    const schoolNameFormatter = (params) => _.lowerCase(params.value);
     let columnDefs = _.map(_.keys(_.first(schoolData)), (key) => ({
       headerName: key,
       field: key,
+      valueFormatter: key === "School Name" ? schoolNameFormatter : undefined,
     }));
     columnDefs = [
       ...columnDefs,
